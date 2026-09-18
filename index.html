@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Práctica 3 — Actuadores</title>
+    <title>Reporte de Prácticas — Introducción a la Mecatrónica</title>
 
     <style>
         /* =========================
@@ -89,7 +89,6 @@
             padding: 0 20px;
         }
 
-        /* SECCIÓN DEL OBJETIVO PRINCIPAL / SEPARADORES */
         .bloque-objetivo {
             border: 2px solid #cbd5e1;
             border-radius: 18px;
@@ -144,33 +143,6 @@
             padding: 20px;
             border-radius: 8px;
             font-size: 17px;
-        }
-
-        /* =========================
-           MATERIALES
-        ========================= */
-
-        .materiales {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-        }
-
-        .material {
-            background: #f8fafc;
-            padding: 18px;
-            border-radius: 10px;
-            border: 1px solid #e2e8f0;
-        }
-
-        .material strong {
-            display: block;
-            margin-bottom: 5px;
-            color: #0f172a;
-        }
-
-        .material small {
-            color: #64748b;
         }
 
         /* =========================
@@ -245,67 +217,23 @@
         }
 
         /* =========================
-           TABLA DE MEDICIONES
-        ========================= */
-
-        .tabla-container {
-            overflow-x: auto;
-            margin-top: 20px;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            min-width: 650px;
-        }
-
-        th,
-        td {
-            padding: 14px;
-            text-align: center;
-            border: 1px solid #cbd5e1;
-        }
-
-        th {
-            background: #e2e8f0;
-            color: #0f172a;
-            font-weight: bold;
-        }
-
-        td {
-            height: 50px;
-            background: #ffffff;
-        }
-
-        .nota-tabla {
-            color: #64748b;
-            font-size: 14px;
-            margin-top: 10px;
-        }
-
-        /* =========================
-           FALLAS
+           FALLAS Y APRENDIZAJES
         ========================= */
 
         .fallas {
             border-left: 5px solid #ef4444;
         }
 
-        .espacio-texto {
-            min-height: 180px;
-            border: 2px dashed #cbd5e1;
-            border-radius: 10px;
-            background: #f8fafc;
-            padding: 20px;
-            color: #94a3b8;
-        }
-
-        /* =========================
-           APRENDIZAJES
-        ========================= */
-
         .aprendizajes {
             border-left: 5px solid #10b981;
+        }
+
+        .contenido-texto {
+            background: #f8fafc;
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #e2e8f0;
+            color: #334155;
         }
 
         /* =========================
@@ -314,7 +242,7 @@
 
         .video-container {
             width: 100%;
-            min-height: 400px;
+            min-height: 300px;
             border: 2px dashed #94a3b8;
             border-radius: 12px;
             background: #f8fafc;
@@ -332,61 +260,10 @@
             padding: 20px;
         }
 
-        video {
-            width: 100%;
-            max-height: 600px;
-            border-radius: 10px;
-        }
-
-        /* =========================
-           FOOTER
-        ========================= */
-
-        footer {
-            text-align: center;
-            padding: 30px;
-            color: #64748b;
-            font-size: 13px;
-        }
-
-        /* =========================
-           CELULAR
-        ========================= */
-
-        @media (max-width: 700px) {
-
-            header {
-                padding: 45px 20px;
-            }
-
-            h1 {
-                font-size: 36px;
-            }
-
-            .subtitle {
-                font-size: 20px;
-            }
-
-            .materiales {
-                grid-template-columns: 1fr;
-            }
-
-            section {
-                padding: 22px;
-            }
-
-            .espacio-imagen {
-                min-height: 220px;
-            }
-
-            .video-container {
-                min-height: 250px;
-            }
-        }
-    
         /* =========================
            GALERÍA DE IMÁGENES
         ========================= */
+
         .galeria {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -399,16 +276,44 @@
             margin-top: 0;
         }
 
+        /* =========================
+           FOOTER Y RESPONSIVO
+        ========================= */
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #64748b;
+            font-size: 13px;
+        }
+
         @media (max-width: 700px) {
+            header {
+                padding: 45px 20px;
+            }
+
+            h1 {
+                font-size: 36px;
+            }
+
+            .subtitle {
+                font-size: 20px;
+            }
+
+            section {
+                padding: 22px;
+            }
+
+            .espacio-imagen {
+                min-height: 220px;
+            }
+
             .galeria {
                 grid-template-columns: 1fr;
             }
         }
-
     </style>
-
 </head>
-
 
 <body>
 
@@ -421,7 +326,7 @@
             <div class="info">
                 <span>Fecha: ____________________</span>
                 <span>Nombre(s): ______________________________</span>
-                <span class="status">REPORTE</span>
+                <span class="status">COMPLETADO</span>
             </div>
         </div>
     </header>
@@ -445,11 +350,13 @@
 
             <section>
                 <h2>Descripción general de lo realizado</h2>
-                <div class="espacio-texto">
-                    Describe de manera general lo que se realizó durante este día.
-                    Puedes mencionar las herramientas utilizadas, la explicación del
-                    profesor, las actividades prácticas, el material trabajado y el
-                    resultado obtenido.
+                <div class="contenido-texto">
+                    <p>
+                        Durante esta sesión práctica se realizó la capacitación inicial en el uso de maquinaria para corte, desbaste y unión de perfiles metálicos[cite: 1, 2, 3]. El profesor explicó el funcionamiento operativo, los protocolos de seguridad e higiene laboral (careta de soldar, peto de cuero, guantes de carnaza y protección ocular) y los principios mecánicos de corte[cite: 2, 4].
+                    </p>
+                    <p>
+                        Posteriormente, realizamos cortes angulados e inclinados en perfiles tubulares de metal, eliminamos los excesos de material y rebabas con esmeril/lima[cite: 1], y practicamos la aplicación de soldadura por arco con electrodo (SMAW) y microalambre (MIG/MAG), analizando la velocidad de avance para lograr un cordón bien estructurado.
+                    </p>
                 </div>
             </section>
 
@@ -459,79 +366,76 @@
                 <div class="paso">
                     <h3><span class="paso-numero">1</span>Uso de cortadoras</h3>
                     <p>
-                        Explica qué tipo de cortadoras se utilizaron, cómo se realizó
-                        el corte, qué material se trabajó y qué medidas de seguridad
-                        fueron necesarias.
+                        Para el preparado del material se utilizó una tronzadora sensitiva de disco abrasivo. Se fijaron firmemente los perfiles metálicos en la prensa inclinable para realizar cortes limpios a 45° y 90°[cite: 1, 2]. Posterior al corte, se empleó una máquina esmeriladora para retirar las rebabas afiladas de los bordes del tubo[cite: 1]. Como medidas de seguridad fue indispensable el uso de gafas, guantes de carnaza y protección auditiva[cite: 2, 4].
                     </p>
                     <div class="espacio-imagen">
-                        <span>ESPACIO PARA IMAGEN<br>Uso de las cortadoras</span>
+                        <img src="Image (2).jpg" alt="Tronzadora sensitiva de corte"> <!--[cite: 2] -->
                     </div>
-                    <p class="caption">Imagen del trabajo realizado con las cortadoras.</p>
+                    <p class="caption">Tronzadora sensitiva utilizada para el corte de perfiles metálicos[cite: 2].</p>
                 </div>
 
                 <div class="paso">
                     <h3><span class="paso-numero">2</span>Uso de la máquina de soldar</h3>
                     <p>
-                        Describe la preparación del equipo, el procedimiento de
-                        soldadura, los materiales utilizados y las precauciones tomadas
-                        durante la actividad.
+                        Se prepararon los equipos de soldadura ajustando el amperaje en la planta de electrodo revestido[cite: 4] y regulando la velocidad de alimentación e inyección de gas en la máquina MIG de microalambre[cite: 5]. Se explicaron los tipos de soldadura y la importancia crítica del control de la velocidad de avance: ir muy rápido genera cordones delgados sin penetración[cite: 3], mientras que avanzar muy lento perfora la pared del tubo por exceso de calor.
                     </p>
                     <div class="espacio-imagen">
-                        <span>ESPACIO PARA IMAGEN<br>Trabajo con la máquina de soldar</span>
+                        <img src="Image (4).jpg" alt="Máquina de soldar por arco"> <!--[cite: 4] -->
                     </div>
-                    <p class="caption">Imagen del proceso o resultado de la soldadura.</p>
+                    <p class="caption">Equipo de soldadura por electrodo revestido (SMAW) utilizado durante la práctica[cite: 4].</p>
                 </div>
 
                 <div class="paso">
                     <h3><span class="paso-numero">3</span>Resultado de la práctica</h3>
                     <p>
-                        Explica brevemente el resultado final obtenido y cualquier
-                        detalle importante observado durante la actividad.
+                        Se obtuvieron secciones de tubo metálico cortadas a medida[cite: 1] y se logró ensamblar una estructura uniendo los perfiles mediante cordones de soldadura continuos y puntos de fijación[cite: 3]. Se identificó de forma visual cómo influye la estabilidad de la mano y la velocidad constante en la penetración de la junta[cite: 3].
                     </p>
                     <div class="espacio-imagen">
-                        <span>ESPACIO PARA IMAGEN<br>Resultado final de la práctica 1</span>
+                        <img src="Image (3).jpg" alt="Resultado de piezas soldadas"> <!--[cite: 3] -->
                     </div>
-                    <p class="caption">Resultado final del trabajo realizado.</p>
+                    <p class="caption">Estructura final ensamblada y cordones de soldadura evaluados[cite: 3].</p>
                 </div>
             </section>
 
             <section>
                 <h2>Imágenes de la práctica</h2>
                 <p>
-                    Coloca aquí fotografías adicionales que documenten el desarrollo
-                    de la práctica.
+                    Fotografías del material preparado, herramientas y equipos de protección/soldadura utilizados[cite: 1, 2, 5].
                 </p>
 
                 <div class="galeria">
                     <div>
-                        <div class="espacio-imagen"><span>IMAGEN 1</span></div>
-                        <p class="caption">Descripción de la imagen 1.</p>
+                        <div class="espacio-imagen">
+                            <img src="Image (1).jpg" alt="Perfiles cortados"> <!--[cite: 1] -->
+                        </div>
+                        <p class="caption">Perfiles tubulares de metal cortados a 45° y 90°[cite: 1].</p>
                     </div>
                     <div>
-                        <div class="espacio-imagen"><span>IMAGEN 2</span></div>
-                        <p class="caption">Descripción de la imagen 2.</p>
+                        <div class="espacio-imagen">
+                            <img src="Image (2).jpg" alt="Cortadora de disco"> <!--[cite: 2] -->
+                        </div>
+                        <p class="caption">Prensa de sujeción e inclinación de la tronzadora[cite: 2].</p>
                     </div>
                     <div>
-                        <div class="espacio-imagen"><span>IMAGEN 3</span></div>
-                        <p class="caption">Descripción de la imagen 3.</p>
+                        <div class="espacio-imagen">
+                            <img src="Image (5).jpg" alt="Máquina MIG microalambre"> <!--[cite: 5] -->
+                        </div>
+                        <p class="caption">Sistema de alimentación de microalambre y gas inerte (MIG)[cite: 5].</p>
                     </div>
                 </div>
             </section>
 
             <section class="fallas">
                 <h2>Fallas o dificultades encontradas</h2>
-                <div class="espacio-texto">
-                    Describe cualquier problema, error o dificultad que se presentó
-                    durante el uso de las herramientas y cómo se resolvió.
+                <div class="contenido-texto">
+                    Al inicio de la soldadura, la mayor dificultad consistió en mantener la distancia adecuada del arco eléctrico y coordinar la velocidad de avance[cite: 3]. En los primeros intentos, el avance lento provocó que el calor perforara el tubo de metal de pared delgada, mientras que al ir demasiado rápido el electrodo terminaba pegándose[cite: 4] o generando un cordón discontinuo[cite: 3]. Se resolvió ajustando el amperaje a un valor ligeramente menor en la máquina[cite: 4] y efectuando punteos previos para asegurar las uniones[cite: 3].
                 </div>
             </section>
 
             <section class="aprendizajes">
                 <h2>¿Qué se aprendió en esta práctica?</h2>
-                <div class="espacio-texto">
-                    Explica los conocimientos y habilidades adquiridos durante la
-                    práctica. Puedes incluir el manejo de herramientas, seguridad,
-                    procedimientos y aspectos que consideres importantes.
+                <div class="contenido-texto">
+                    Se adquirió habilidad práctica en el uso seguro de cortadoras metálicas sensitivas[cite: 2] y técnicas de pulido de rebabas[cite: 1]. Además, se aprendió la diferencia operativa entre soldadura por electrodo revestido (SMAW)[cite: 4] y microalambre (MIG)[cite: 5], comprendiendo el impacto directo que tienen el amperaje, el ángulo de la antorcha y la velocidad de movimiento sobre la resistencia y calidad estética del cordón de soldadura[cite: 3].
                 </div>
             </section>
 
@@ -540,7 +444,7 @@
                 <div class="video-container">
                     <span>
                         ESPACIO PARA VIDEO<br>
-                        Inserta aquí un video de la práctica o agrega un enlace.
+                        Inserta aquí un video del proceso de soldadura o agrega un enlace.
                     </span>
                 </div>
                 <p class="caption">Enlace o descripción del video: ______________________________</p>
@@ -548,9 +452,8 @@
 
             <section>
                 <h2>Conclusión</h2>
-                <div class="espacio-texto">
-                    Escribe una conclusión breve sobre la experiencia y la importancia
-                    de las herramientas utilizadas.
+                <div class="contenido-texto">
+                    La preparación del material mediante cortes limpios[cite: 1, 2] y limado de rebabas es tan crucial como la soldadura misma. Controlar adecuadamente los parámetros del equipo y mantener una técnica de avance constante permite obtener estructuras sólidas y seguras[cite: 3], habilidades esenciales para la fabricación de chasis y soportes en mecatrónica.
                 </div>
             </section>
         </div>
@@ -573,11 +476,8 @@
 
             <section>
                 <h2>Descripción general de lo realizado</h2>
-                <div class="espacio-texto">
-                    Describe de manera general lo que se realizó durante este día.
-                    Menciona el diseño desarrollado en SolidWorks, el proceso de
-                    ensamblaje y la preparación o realización del corte láser en MDF
-                    o cartón.
+                <div class="contenido-texto">
+                    En esta segunda práctica abordamos el ciclo de trabajo completo desde el diseño asistido por computadora (CAD) hasta la fabricación digital (CAM/Corte Láser). Inicialmente, modelamos piezas individuales en SolidWorks mediante croquis 2D y operaciones de extrusión, incorporando muescas de encastre. Posterior a ello, realizamos el ensamblaje virtual para validar que no existieran colisiones mecánicas, exportamos los vectores planares (DXF) y operamos la cortadora láser para fabricar las piezas físicas en MDF o cartón.
                 </div>
             </section>
 
@@ -587,91 +487,81 @@
                 <div class="paso">
                     <h3><span class="paso-numero">1</span>Diseño en SolidWorks</h3>
                     <p>
-                        Explica cómo se realizó el modelo, qué herramientas de
-                        SolidWorks se utilizaron y qué características se tomaron en
-                        cuenta para que las piezas pudieran ensamblarse.
+                        Se crearon croquis 2D parametrizados utilizando herramientas como cotas inteligentes, relaciones de posición y simetría. Para posibilitar el armado físico posterior, se contemplaron uniones tipo caja-espiga (muescas de encastre) considerando el espesor nominal de la lámina de MDF/cartón. Con la operación de <i>Extrusión de saliente/base</i> se generaron los volúmenes 3D.
                     </p>
                     <div class="espacio-imagen">
                         <span>ESPACIO PARA IMAGEN<br>Diseño realizado en SolidWorks</span>
                     </div>
-                    <p class="caption">Captura del diseño realizado en SolidWorks.</p>
+                    <p class="caption">Captura del diseño en 3D desarrollado en SolidWorks.</p>
                 </div>
 
                 <div class="paso">
                     <h3><span class="paso-numero">2</span>Ensamblaje</h3>
                     <p>
-                        Describe cómo se relacionaron las piezas, qué tipo de
-                        ensamblaje se realizó y cómo se verificó que las piezas
-                        encajaran correctamente.
+                        En el entorno de <i>Ensamblaje</i> de SolidWorks se insertaron los componentes individuales y se fijaron <i>Relaciones de posición</i> (coincidentes, paralelas y concéntricas). Se utilizó la función de detección de interferencias para asegurar que las muescas acoplaran sin traslapes ni holguras indebidas.
                     </p>
                     <div class="espacio-imagen">
                         <span>ESPACIO PARA IMAGEN<br>Ensamblaje en SolidWorks</span>
                     </div>
-                    <p class="caption">Captura del ensamblaje de las piezas.</p>
+                    <p class="caption">Ensamblaje virtual de las piezas comprobando el correcto acoplamiento.</p>
                 </div>
 
                 <div class="paso">
                     <h3><span class="paso-numero">3</span>Preparación para corte láser</h3>
                     <p>
-                        Explica cómo se preparó el diseño para el corte láser, las
-                        dimensiones consideradas y el material seleccionado: MDF o
-                        cartón.
+                        Las vistas frontales planas de cada pieza se exportaron a un formato vectorial 2D (.DXF). Este archivo se cargó en el software de control de la máquina (ej. LightBurn / RDWorks) para organizar la distribución de corte (nesting) y configurar capas cromáticas diferenciadas para corte completo y grabado.
                     </p>
                     <div class="espacio-imagen">
                         <span>ESPACIO PARA IMAGEN<br>Archivo o preparación para corte láser</span>
                     </div>
-                    <p class="caption">Diseño preparado para el proceso de corte láser.</p>
+                    <p class="caption">Distribución vectorial de las caras en el software de la cortadora láser.</p>
                 </div>
 
                 <div class="paso">
                     <h3><span class="paso-numero">4</span>Corte láser y armado</h3>
                     <p>
-                        Describe el proceso de corte, el material utilizado y el
-                        armado de las piezas obtenidas.
+                        Se posicionó la placa de MDF/cartón en la cama de la cortadora láser y se ajustó la distancia focal del cabezal. Tras configurar los parámetros de potencia (%), velocidad (mm/s) y asistencia de aire, se ejecutó el programa. Finalmente, se retiraron las piezas físicas cortadas y se armó la estructura manual comprobando los encastres.
                     </p>
                     <div class="espacio-imagen">
                         <span>ESPACIO PARA IMAGEN<br>Piezas obtenidas del corte láser</span>
                     </div>
-                    <p class="caption">Piezas cortadas en MDF o cartón.</p>
+                    <p class="caption">Piezas físicas cortadas por láser y ensambladas exitosamente.</p>
                 </div>
             </section>
 
             <section>
                 <h2>Imágenes de la práctica</h2>
                 <p>
-                    Coloca aquí fotografías adicionales del diseño, ensamblaje, corte
-                    láser y resultado final.
+                    Fotografías del proceso CAD, archivo de corte y modelo físico ensamblado.
                 </p>
 
                 <div class="galeria">
                     <div>
                         <div class="espacio-imagen"><span>IMAGEN 1</span></div>
-                        <p class="caption">Descripción de la imagen 1.</p>
+                        <p class="caption">Croquis 2D en SolidWorks.</p>
                     </div>
                     <div>
                         <div class="espacio-imagen"><span>IMAGEN 2</span></div>
-                        <p class="caption">Descripción de la imagen 2.</p>
+                        <p class="caption">Proceso de corte láser en marcha.</p>
                     </div>
                     <div>
                         <div class="espacio-imagen"><span>IMAGEN 3</span></div>
-                        <p class="caption">Descripción de la imagen 3.</p>
+                        <p class="caption">Estructura física final armada.</p>
                     </div>
                 </div>
             </section>
 
             <section class="fallas">
                 <h2>Fallas o dificultades encontradas</h2>
-                <div class="espacio-texto">
-                    Describe los problemas encontrados durante el diseño, ensamblaje
-                    o corte láser y explica cómo fueron solucionados.
+                <div class="contenido-texto">
+                    Durante el primer armado físico, algunas uniones presentaron ligera holgura o rozamiento excesivo debido al <i>kerf</i> (la sangría o cantidad de material consumido por el haz del láser durante el corte). El problema se corrigió midiendo la tolerancia real y aplicando un desfasamiento o <i>offset</i> dimensional directo en las muescas del croquis en SolidWorks.
                 </div>
             </section>
 
             <section class="aprendizajes">
                 <h2>¿Qué se aprendió en esta práctica?</h2>
-                <div class="espacio-texto">
-                    Explica los conocimientos adquiridos sobre SolidWorks, modelado,
-                    ensamblajes, preparación de archivos y corte láser.
+                <div class="contenido-texto">
+                    Se aprendieron las metodologías de Diseño para Manufactura (DFM), comprendiendo cómo adaptar modelos CAD 3D a procesos de producción 2D mediante exportación de vectores DXF. Además, se adquirió experiencia en la configuración de la cortadora láser (calibración de foco, balance potencia/velocidad) y en la compensación de tolerancias mecánicas.
                 </div>
             </section>
 
@@ -680,7 +570,7 @@
                 <div class="video-container">
                     <span>
                         ESPACIO PARA VIDEO<br>
-                        Inserta aquí un video del proceso o agrega un enlace.
+                        Inserta aquí un video del proceso de corte láser o agrega un enlace.
                     </span>
                 </div>
                 <p class="caption">Enlace o descripción del video: ______________________________</p>
@@ -688,9 +578,8 @@
 
             <section>
                 <h2>Conclusión</h2>
-                <div class="espacio-texto">
-                    Escribe una conclusión breve sobre el proceso de diseño,
-                    ensamblaje y fabricación mediante corte láser.
+                <div class="contenido-texto">
+                    La integración entre herramientas CAD (SolidWorks) y equipos de manufactura rápida CNC (cortadora láser) permite transformar ideas virtuales en prototipos físicos exactos y funcionales en cuestión de minutos, siendo un pilar clave dentro de la ingeniería mecatrónica.
                 </div>
             </section>
         </div>
@@ -704,4 +593,5 @@
     </footer>
 
 </body>
+
 </html>
