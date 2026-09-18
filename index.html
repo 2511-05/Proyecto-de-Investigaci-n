@@ -1,1 +1,707 @@
+<!DOCTYPE html>
+<html lang="es">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Práctica 3 — Actuadores</title>
+
+    <style>
+        /* =========================
+           CONFIGURACIÓN GENERAL
+        ========================= */
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f1f5f9;
+            color: #1e293b;
+            line-height: 1.6;
+        }
+
+        /* =========================
+           ENCABEZADO
+        ========================= */
+
+        header {
+            background: #0f172a;
+            color: white;
+            padding: 60px 20px;
+        }
+
+        .header-content {
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #334155;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 24px;
+            color: #cbd5e1;
+            margin-bottom: 25px;
+        }
+
+        .info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            color: #cbd5e1;
+            font-size: 14px;
+        }
+
+        .status {
+            background: #f59e0b;
+            color: #111827;
+            padding: 4px 10px;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 11px;
+        }
+
+        /* =========================
+           CONTENIDO PRINCIPAL
+        ========================= */
+
+        main {
+            max-width: 1000px;
+            margin: -30px auto 50px;
+            padding: 0 20px;
+        }
+
+        /* SECCIÓN DEL OBJETIVO PRINCIPAL / SEPARADORES */
+        .bloque-objetivo {
+            border: 2px solid #cbd5e1;
+            border-radius: 18px;
+            padding: 20px;
+            margin-bottom: 50px;
+            background-color: #f8fafc;
+        }
+
+        .titulo-bloque {
+            background: #0f172a;
+            color: #ffffff;
+            padding: 15px 20px;
+            border-radius: 10px;
+            font-size: 26px;
+            margin-bottom: 25px;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        section {
+            background: white;
+            padding: 30px;
+            margin-bottom: 25px;
+            border-radius: 14px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #0f172a;
+            font-size: 25px;
+        }
+
+        h3 {
+            margin-top: 20px;
+            margin-bottom: 10px;
+            color: #334155;
+        }
+
+        p {
+            margin-bottom: 10px;
+        }
+
+        /* =========================
+           OBJETIVO
+        ========================= */
+
+        .objetivo {
+            background: #f8fafc;
+            border-left: 5px solid #3b82f6;
+            padding: 20px;
+            border-radius: 8px;
+            font-size: 17px;
+        }
+
+        /* =========================
+           MATERIALES
+        ========================= */
+
+        .materiales {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .material {
+            background: #f8fafc;
+            padding: 18px;
+            border-radius: 10px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .material strong {
+            display: block;
+            margin-bottom: 5px;
+            color: #0f172a;
+        }
+
+        .material small {
+            color: #64748b;
+        }
+
+        /* =========================
+           DESARROLLO
+        ========================= */
+
+        .paso {
+            margin-bottom: 35px;
+        }
+
+        .paso:last-child {
+            margin-bottom: 0;
+        }
+
+        .paso-numero {
+            display: inline-block;
+            background: #0f172a;
+            color: white;
+            width: 32px;
+            height: 32px;
+            text-align: center;
+            line-height: 32px;
+            border-radius: 50%;
+            margin-right: 8px;
+            font-weight: bold;
+        }
+
+        .paso h3 {
+            display: flex;
+            align-items: center;
+            margin-top: 0;
+            margin-bottom: 12px;
+        }
+
+        /* =========================
+           ESPACIOS PARA IMÁGENES
+        ========================= */
+
+        .espacio-imagen {
+            width: 100%;
+            min-height: 300px;
+            border: 2px dashed #94a3b8;
+            border-radius: 12px;
+            background: #f8fafc;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            margin-top: 20px;
+            overflow: hidden;
+        }
+
+        .espacio-imagen span {
+            color: #64748b;
+            font-size: 16px;
+            text-align: center;
+        }
+
+        .espacio-imagen img {
+            width: 100%;
+            max-height: 550px;
+            object-fit: contain;
+            border-radius: 10px;
+        }
+
+        .caption {
+            text-align: center;
+            color: #64748b;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+
+        /* =========================
+           TABLA DE MEDICIONES
+        ========================= */
+
+        .tabla-container {
+            overflow-x: auto;
+            margin-top: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 650px;
+        }
+
+        th,
+        td {
+            padding: 14px;
+            text-align: center;
+            border: 1px solid #cbd5e1;
+        }
+
+        th {
+            background: #e2e8f0;
+            color: #0f172a;
+            font-weight: bold;
+        }
+
+        td {
+            height: 50px;
+            background: #ffffff;
+        }
+
+        .nota-tabla {
+            color: #64748b;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        /* =========================
+           FALLAS
+        ========================= */
+
+        .fallas {
+            border-left: 5px solid #ef4444;
+        }
+
+        .espacio-texto {
+            min-height: 180px;
+            border: 2px dashed #cbd5e1;
+            border-radius: 10px;
+            background: #f8fafc;
+            padding: 20px;
+            color: #94a3b8;
+        }
+
+        /* =========================
+           APRENDIZAJES
+        ========================= */
+
+        .aprendizajes {
+            border-left: 5px solid #10b981;
+        }
+
+        /* =========================
+           VIDEO
+        ========================= */
+
+        .video-container {
+            width: 100%;
+            min-height: 400px;
+            border: 2px dashed #94a3b8;
+            border-radius: 12px;
+            background: #f8fafc;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            overflow: hidden;
+        }
+
+        .video-container span {
+            color: #64748b;
+            text-align: center;
+            padding: 20px;
+        }
+
+        video {
+            width: 100%;
+            max-height: 600px;
+            border-radius: 10px;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #64748b;
+            font-size: 13px;
+        }
+
+        /* =========================
+           CELULAR
+        ========================= */
+
+        @media (max-width: 700px) {
+
+            header {
+                padding: 45px 20px;
+            }
+
+            h1 {
+                font-size: 36px;
+            }
+
+            .subtitle {
+                font-size: 20px;
+            }
+
+            .materiales {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 22px;
+            }
+
+            .espacio-imagen {
+                min-height: 220px;
+            }
+
+            .video-container {
+                min-height: 250px;
+            }
+        }
+    
+        /* =========================
+           GALERÍA DE IMÁGENES
+        ========================= */
+        .galeria {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .galeria .espacio-imagen {
+            min-height: 220px;
+            margin-top: 0;
+        }
+
+        @media (max-width: 700px) {
+            .galeria {
+                grid-template-columns: 1fr;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+    <header>
+        <div class="header-content">
+            <span class="tag">INTRODUCCIÓN A LA MECATRÓNICA</span>
+            <h1>Reporte de Prácticas</h1>
+            <p class="subtitle">Herramientas, soldadura, SolidWorks y corte láser</p>
+
+            <div class="info">
+                <span>Fecha: ____________________</span>
+                <span>Nombre(s): ______________________________</span>
+                <span class="status">REPORTE</span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- =========================================================
+             PRÁCTICA 1
+        ========================================================== -->
+        <div class="bloque-objetivo">
+            <h2 class="titulo-bloque">Práctica 1 — Cortadoras y máquina de soldar</h2>
+
+            <section>
+                <h2>Objetivo de la práctica</h2>
+                <div class="objetivo">
+                    Conocer y utilizar de manera adecuada las cortadoras y la máquina de
+                    soldar, identificando su funcionamiento, medidas de seguridad y
+                    aplicaciones básicas dentro del trabajo de taller.
+                </div>
+            </section>
+
+            <section>
+                <h2>Descripción general de lo realizado</h2>
+                <div class="espacio-texto">
+                    Describe de manera general lo que se realizó durante este día.
+                    Puedes mencionar las herramientas utilizadas, la explicación del
+                    profesor, las actividades prácticas, el material trabajado y el
+                    resultado obtenido.
+                </div>
+            </section>
+
+            <section>
+                <h2>Desarrollo de la práctica</h2>
+
+                <div class="paso">
+                    <h3><span class="paso-numero">1</span>Uso de cortadoras</h3>
+                    <p>
+                        Explica qué tipo de cortadoras se utilizaron, cómo se realizó
+                        el corte, qué material se trabajó y qué medidas de seguridad
+                        fueron necesarias.
+                    </p>
+                    <div class="espacio-imagen">
+                        <span>ESPACIO PARA IMAGEN<br>Uso de las cortadoras</span>
+                    </div>
+                    <p class="caption">Imagen del trabajo realizado con las cortadoras.</p>
+                </div>
+
+                <div class="paso">
+                    <h3><span class="paso-numero">2</span>Uso de la máquina de soldar</h3>
+                    <p>
+                        Describe la preparación del equipo, el procedimiento de
+                        soldadura, los materiales utilizados y las precauciones tomadas
+                        durante la actividad.
+                    </p>
+                    <div class="espacio-imagen">
+                        <span>ESPACIO PARA IMAGEN<br>Trabajo con la máquina de soldar</span>
+                    </div>
+                    <p class="caption">Imagen del proceso o resultado de la soldadura.</p>
+                </div>
+
+                <div class="paso">
+                    <h3><span class="paso-numero">3</span>Resultado de la práctica</h3>
+                    <p>
+                        Explica brevemente el resultado final obtenido y cualquier
+                        detalle importante observado durante la actividad.
+                    </p>
+                    <div class="espacio-imagen">
+                        <span>ESPACIO PARA IMAGEN<br>Resultado final de la práctica 1</span>
+                    </div>
+                    <p class="caption">Resultado final del trabajo realizado.</p>
+                </div>
+            </section>
+
+            <section>
+                <h2>Imágenes de la práctica</h2>
+                <p>
+                    Coloca aquí fotografías adicionales que documenten el desarrollo
+                    de la práctica.
+                </p>
+
+                <div class="galeria">
+                    <div>
+                        <div class="espacio-imagen"><span>IMAGEN 1</span></div>
+                        <p class="caption">Descripción de la imagen 1.</p>
+                    </div>
+                    <div>
+                        <div class="espacio-imagen"><span>IMAGEN 2</span></div>
+                        <p class="caption">Descripción de la imagen 2.</p>
+                    </div>
+                    <div>
+                        <div class="espacio-imagen"><span>IMAGEN 3</span></div>
+                        <p class="caption">Descripción de la imagen 3.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="fallas">
+                <h2>Fallas o dificultades encontradas</h2>
+                <div class="espacio-texto">
+                    Describe cualquier problema, error o dificultad que se presentó
+                    durante el uso de las herramientas y cómo se resolvió.
+                </div>
+            </section>
+
+            <section class="aprendizajes">
+                <h2>¿Qué se aprendió en esta práctica?</h2>
+                <div class="espacio-texto">
+                    Explica los conocimientos y habilidades adquiridos durante la
+                    práctica. Puedes incluir el manejo de herramientas, seguridad,
+                    procedimientos y aspectos que consideres importantes.
+                </div>
+            </section>
+
+            <section>
+                <h2>Imagen o video adicional</h2>
+                <div class="video-container">
+                    <span>
+                        ESPACIO PARA VIDEO<br>
+                        Inserta aquí un video de la práctica o agrega un enlace.
+                    </span>
+                </div>
+                <p class="caption">Enlace o descripción del video: ______________________________</p>
+            </section>
+
+            <section>
+                <h2>Conclusión</h2>
+                <div class="espacio-texto">
+                    Escribe una conclusión breve sobre la experiencia y la importancia
+                    de las herramientas utilizadas.
+                </div>
+            </section>
+        </div>
+
+
+        <!-- =========================================================
+             PRÁCTICA 2
+        ========================================================== -->
+        <div class="bloque-objetivo">
+            <h2 class="titulo-bloque">Práctica 2 — SolidWorks, ensamblaje y corte láser</h2>
+
+            <section>
+                <h2>Objetivo de la práctica</h2>
+                <div class="objetivo">
+                    Utilizar SolidWorks para realizar un diseño y su ensamblaje,
+                    preparando posteriormente el modelo para realizar un corte láser
+                    en MDF o cartón.
+                </div>
+            </section>
+
+            <section>
+                <h2>Descripción general de lo realizado</h2>
+                <div class="espacio-texto">
+                    Describe de manera general lo que se realizó durante este día.
+                    Menciona el diseño desarrollado en SolidWorks, el proceso de
+                    ensamblaje y la preparación o realización del corte láser en MDF
+                    o cartón.
+                </div>
+            </section>
+
+            <section>
+                <h2>Desarrollo de la práctica</h2>
+
+                <div class="paso">
+                    <h3><span class="paso-numero">1</span>Diseño en SolidWorks</h3>
+                    <p>
+                        Explica cómo se realizó el modelo, qué herramientas de
+                        SolidWorks se utilizaron y qué características se tomaron en
+                        cuenta para que las piezas pudieran ensamblarse.
+                    </p>
+                    <div class="espacio-imagen">
+                        <span>ESPACIO PARA IMAGEN<br>Diseño realizado en SolidWorks</span>
+                    </div>
+                    <p class="caption">Captura del diseño realizado en SolidWorks.</p>
+                </div>
+
+                <div class="paso">
+                    <h3><span class="paso-numero">2</span>Ensamblaje</h3>
+                    <p>
+                        Describe cómo se relacionaron las piezas, qué tipo de
+                        ensamblaje se realizó y cómo se verificó que las piezas
+                        encajaran correctamente.
+                    </p>
+                    <div class="espacio-imagen">
+                        <span>ESPACIO PARA IMAGEN<br>Ensamblaje en SolidWorks</span>
+                    </div>
+                    <p class="caption">Captura del ensamblaje de las piezas.</p>
+                </div>
+
+                <div class="paso">
+                    <h3><span class="paso-numero">3</span>Preparación para corte láser</h3>
+                    <p>
+                        Explica cómo se preparó el diseño para el corte láser, las
+                        dimensiones consideradas y el material seleccionado: MDF o
+                        cartón.
+                    </p>
+                    <div class="espacio-imagen">
+                        <span>ESPACIO PARA IMAGEN<br>Archivo o preparación para corte láser</span>
+                    </div>
+                    <p class="caption">Diseño preparado para el proceso de corte láser.</p>
+                </div>
+
+                <div class="paso">
+                    <h3><span class="paso-numero">4</span>Corte láser y armado</h3>
+                    <p>
+                        Describe el proceso de corte, el material utilizado y el
+                        armado de las piezas obtenidas.
+                    </p>
+                    <div class="espacio-imagen">
+                        <span>ESPACIO PARA IMAGEN<br>Piezas obtenidas del corte láser</span>
+                    </div>
+                    <p class="caption">Piezas cortadas en MDF o cartón.</p>
+                </div>
+            </section>
+
+            <section>
+                <h2>Imágenes de la práctica</h2>
+                <p>
+                    Coloca aquí fotografías adicionales del diseño, ensamblaje, corte
+                    láser y resultado final.
+                </p>
+
+                <div class="galeria">
+                    <div>
+                        <div class="espacio-imagen"><span>IMAGEN 1</span></div>
+                        <p class="caption">Descripción de la imagen 1.</p>
+                    </div>
+                    <div>
+                        <div class="espacio-imagen"><span>IMAGEN 2</span></div>
+                        <p class="caption">Descripción de la imagen 2.</p>
+                    </div>
+                    <div>
+                        <div class="espacio-imagen"><span>IMAGEN 3</span></div>
+                        <p class="caption">Descripción de la imagen 3.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="fallas">
+                <h2>Fallas o dificultades encontradas</h2>
+                <div class="espacio-texto">
+                    Describe los problemas encontrados durante el diseño, ensamblaje
+                    o corte láser y explica cómo fueron solucionados.
+                </div>
+            </section>
+
+            <section class="aprendizajes">
+                <h2>¿Qué se aprendió en esta práctica?</h2>
+                <div class="espacio-texto">
+                    Explica los conocimientos adquiridos sobre SolidWorks, modelado,
+                    ensamblajes, preparación de archivos y corte láser.
+                </div>
+            </section>
+
+            <section>
+                <h2>Imagen o video adicional</h2>
+                <div class="video-container">
+                    <span>
+                        ESPACIO PARA VIDEO<br>
+                        Inserta aquí un video del proceso o agrega un enlace.
+                    </span>
+                </div>
+                <p class="caption">Enlace o descripción del video: ______________________________</p>
+            </section>
+
+            <section>
+                <h2>Conclusión</h2>
+                <div class="espacio-texto">
+                    Escribe una conclusión breve sobre el proceso de diseño,
+                    ensamblaje y fabricación mediante corte láser.
+                </div>
+            </section>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>
+            Bitácora de Introducción a la Mecatrónica · Reporte de dos prácticas
+        </p>
+    </footer>
+
+</body>
+</html>
